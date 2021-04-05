@@ -1,6 +1,8 @@
+@import "../variables";
+
 .home-container {
-  width: 100%;
   height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,17 +15,16 @@
 }
 
 .home-title {
-  font-size: 50px;
-  font-weight: 900;
+  font-size: 40px;
+  font-weight: normal;
 }
 
 .home-btn-link {
-  background-color: rgb(0, 56, 94);
   color: white;
-  border: 0px;
-  padding: 10px;
-  font-size: 20px;
-  width: fit-content;
+  background-color: $dark-blue;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 0px;
+  width: fit-content;
+  padding: 10px;
 }

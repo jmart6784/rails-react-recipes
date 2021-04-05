@@ -19,17 +19,17 @@ const Recipes = () => {
 
   const allRecipes = recipes.map((recipe, index) => (
     <div key={index}>
-      <div>
+      <div className="recipe-container">
         <img
           src={`assets/${recipe.image}`}
           alt={`${recipe.name} image`}
-          height="150"
-          width="150"
+          height="300"
+          width="300"
         />
-        <div>
-          <h5>{recipe.name}</h5>
-          <Link to={`/recipe/${recipe.id}`}>View Recipe</Link>
-        </div>
+        <p>{recipe.name}</p>
+        <Link to={`/recipe/${recipe.id}`} className="view-recipe-link">
+          View Recipe
+        </Link>
       </div>
     </div>
   ));
@@ -44,24 +44,25 @@ const Recipes = () => {
 
   return (
     <div>
-      <section>
-        <div>
-          <h1>Recipes for every occasion</h1>
-          <p>
-            We’ve pulled together our most popular recipes, our latest
-            additions, and our editor’s picks, so there’s sure to be something
-            tempting for you to try.
-          </p>
+      <div className="recipe-index-header">
+        <h1 className="recipe-index-title">Recipes for every occasion</h1>
+        <p>
+          We’ve pulled together our most popular recipes, our latest additions,
+          and our editor’s picks, so there’s sure to be something tempting for
+          you to try.
+        </p>
+      </div>
+
+      <div className="bottom-container">
+        <div className="new-recipe-link-div">
+          <Link to="/recipe" className="recipe-index-new-link">
+            Create New Recipe
+          </Link>
         </div>
-      </section>
-      <div>
-        <main>
-          <div>
-            <Link to="/recipe">Create New Recipe</Link>
-          </div>
-          <div>{recipes.length > 0 ? allRecipes : noRecipe}</div>
-          <Link to="/">Home</Link>
-        </main>
+        <div className="recipe-index-grid">
+          {recipes.length > 0 ? allRecipes : noRecipe}
+        </div>
+        <Link to="/">Home</Link>
       </div>
     </div>
   );
