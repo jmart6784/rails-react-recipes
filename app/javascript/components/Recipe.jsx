@@ -101,13 +101,19 @@ const Recipe = (props) => {
             />
           </div>
 
-          <div>
+          <div className="recipe-show-btn-div">
+            <Link
+              to={`/edit_recipe/${props.match.params.id}`}
+              className="recipe-show-edit-link"
+            >
+              Edit
+            </Link>
             <button
               onClick={deleteRecipe}
               className="recipe-show-del-btn"
               type="button"
             >
-              Delete Recipe
+              Delete
             </button>
           </div>
         </div>

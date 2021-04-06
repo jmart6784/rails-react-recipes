@@ -26,6 +26,16 @@ class Api::V1::RecipesController < ApplicationController
     render json: { message: 'Recipe deleted!' }
   end
 
+  def update
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts "DDDDDDDDDDDD"
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    recipe&.update(recipe_params)
+    render json: {message: 'Recipe edited!'}
+  end
+
   private
 
   def recipe_params
