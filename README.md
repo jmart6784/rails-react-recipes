@@ -2,7 +2,7 @@
 
 The purpose of this project was to practice integrating React and Rails together and making a Rails API based CRUD project.
 
-Visit this project live at:
+Visit this project live at: https://rails-react-recipes-app.herokuapp.com/#/
 
 OR
 
