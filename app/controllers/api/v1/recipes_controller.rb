@@ -14,6 +14,11 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def show
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts "SHOW METHOD"
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     if recipe
       render json: recipe
     else
