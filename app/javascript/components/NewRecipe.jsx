@@ -53,50 +53,60 @@ const NewRecipe = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <h1>Add a new recipe to our awesome recipe collection.</h1>
-          <form onSubmit={onSubmit}>
-            <div>
-              <label htmlFor="recipeName">Recipe name</label>
-              <input
-                type="text"
-                name="name"
-                id="recipeName"
-                required
-                onChange={onChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="recipeIngredients">Ingredients</label>
-              <input
-                type="text"
-                name="ingredients"
-                id="recipeIngredients"
-                required
-                onChange={onChange}
-              />
-              <small id="ingredientsHelp">
-                Separate each ingredient with a comma.
-              </small>
-            </div>
-            <label htmlFor="instruction">Preparation Instructions</label>
+    <div className="new-recipe-container">
+      <div className="new-recipe-inner-div">
+        <h1 className="new-recipe-title">
+          Add a new recipe to our awesome recipe collection.
+        </h1>
+
+        <form className="new-recipe-form" onSubmit={onSubmit}>
+          <label className="new-recipe-label" htmlFor="recipeName">
+            <span className="new-recipe-span">Recipe name</span>
+            <input
+              type="text"
+              name="name"
+              id="recipeName"
+              required
+              onChange={onChange}
+              className="new-recipe-text-input"
+            />
+          </label>
+
+          <label className="new-recipe-label" htmlFor="recipeIngredients">
+            <span className="new-recipe-span">Ingredients</span>
+            <input
+              type="text"
+              name="ingredients"
+              id="recipeIngredients"
+              required
+              onChange={onChange}
+              className="new-recipe-text-input"
+            />
+            <small id="ingredientsHelp">
+              Separate each ingredient with a comma.
+            </small>
+          </label>
+
+          <label className="new-recipe-label" htmlFor="instruction">
+            <span className="new-recipe-span">Preparation Instructions</span>
             <textarea
               id="instruction"
               name="instruction"
               rows="5"
               required
               onChange={onChange}
+              className="new-recipe-text-area"
             />
-            <button type="submit">Create Recipe</button>
-            <Link to="/recipes">Back to recipes</Link>
-          </form>
-        </div>
+          </label>
+
+          <button type="submit" className="new-recipe-submit-btn">
+            Create Recipe
+          </button>
+          <Link to="/recipes" className="new-recipe-back-link">
+            Back to recipes
+          </Link>
+        </form>
       </div>
-      <p>NAME: {forms.name}</p>
-      <p>INGREDIENTS: {forms.ingredients}</p>
-      <p>INSTRUCTION: {forms.instruction}</p>
     </div>
   );
 };
