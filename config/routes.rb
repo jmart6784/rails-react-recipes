@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get 'recipes/index'
       post 'recipes/create'
       get '/show/:id', to: 'recipes#show'
-      delete 'recipes/destroy', to: 'recipes#destroy'
+      delete '/destroy/:id', to: 'recipes#destroy'
     end
   end
   root "home#index"

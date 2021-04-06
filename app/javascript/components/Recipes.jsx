@@ -62,7 +62,9 @@ const Recipes = () => {
         <div className="recipe-index-grid">
           {recipes.length > 0 ? allRecipes : noRecipe}
         </div>
-        <Link to="/">Home</Link>
+        <Link to="/" className="home-btn-link">
+          Home
+        </Link>
       </div>
     </div>
   );

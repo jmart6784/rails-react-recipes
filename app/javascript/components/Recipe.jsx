@@ -50,6 +50,32 @@ const Recipe = (props) => {
     }
   }, [recipe]);
 
+  const deleteRecipe = () => {
+    const {
+      match: {
+        params: { id },
+      },
+    } = props;
+    const url = `/api/v1/destroy/${id}`;
+    const token = document.querySelector('meta[name="csrf-token"]').content;
+
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "X-CSRF-Token": token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Network response was not ok.");
+      })
+      .then(() => props.history.push("/recipes"))
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <div>
       <div
@@ -76,7 +102,11 @@ const Recipe = (props) => {
           </div>
 
           <div>
-            <button className="recipe-show-del-btn" type="button">
+            <button
+              onClick={deleteRecipe}
+              className="recipe-show-del-btn"
+              type="button"
+            >
               Delete Recipe
             </button>
           </div>
