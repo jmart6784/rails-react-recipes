@@ -14,7 +14,7 @@ const Recipes = () => {
         throw new Error("Network response was not ok.");
       })
       .then((response) => setRecipes(response))
-      .catch(() => this.props.history.push("/"));
+      .catch(() => props.history.push("/"));
   }, []);
 
   const allRecipes = recipes.map((recipe, index) => (
@@ -55,7 +55,7 @@ const Recipes = () => {
 
       <div className="bottom-container">
         <div className="new-recipe-link-div">
-          <Link to="/recipe" className="recipe-index-new-link">
+          <Link to="/new_recipe" className="recipe-index-new-link">
             Create New Recipe
           </Link>
         </div>
