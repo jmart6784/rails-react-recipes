@@ -27,11 +27,6 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def update
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    puts "DDDDDDDDDDDD"
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     recipe&.update(recipe_params)
     render json: {message: 'Recipe edited!'}
   end
