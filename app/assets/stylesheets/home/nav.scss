@@ -1,0 +1,40 @@
+@import "../variables";
+
+#root {
+  position: relative;
+}
+
+.nav-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $dark-blue;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-container {
+  margin-bottom: 1000px;
+}
+
+.nav-username {
+  font-size: 18px;
+  color: white;
+}
+
+.nav-logout {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-logout:hover {
+  text-decoration: underline;
+}
+
+.nav-clearance {
+  margin-top: 48px;
+}
