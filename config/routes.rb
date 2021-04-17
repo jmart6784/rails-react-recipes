@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   namespace :api do
     namespace :v1 do
       get 'recipes/index'
@@ -8,5 +10,12 @@ Rails.application.routes.draw do
       put '/update/:id', to: 'recipes#update'
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      get '/user_info', to: 'devise_info#user_info'
+    end
+  end
+
   root "home#index"
 end
