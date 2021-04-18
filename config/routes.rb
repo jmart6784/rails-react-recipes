@@ -17,5 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :v1 do
+      get 'users/index'
+      get '/user/:id', to: 'users#show'
+    end
+  end
+
   root "home#index"
 end
