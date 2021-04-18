@@ -8,6 +8,7 @@ import EditRecipe from "../components/EditRecipe";
 import UserContext from "../components/context/UserContext";
 import Nav from "../components/Nav";
 import Users from "../components/Users";
+import User from "../components/User";
 
 const Index = () => {
   const [user, setUser] = useState({});
@@ -46,6 +47,7 @@ const Index = () => {
             <Route path="/new_recipe" exact component={NewRecipe} />
             <Route path="/edit_recipe/:id" exact component={EditRecipe} />
             <Route path="/users" exact component={Users} />
+            <Route path="/user/:id" exact component={User} />
           </Switch>
         </div>
       </Router>
