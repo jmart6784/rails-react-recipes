@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get '/show/:id', to: 'recipes#show'
       delete '/destroy/:id', to: 'recipes#destroy'
       put '/update/:id', to: 'recipes#update'
+      get 'recipes/user_recipes/:id', to: 'recipes#user_recipes'
     end
   end
 

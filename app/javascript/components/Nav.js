@@ -22,7 +22,7 @@ const Index = () => {
               Community
             </Link>
             <Link
-              to={`user/${user.current_user ? user.current_user.id : ""}`}
+              to={`/user/${user.current_user ? user.current_user.id : ""}`}
               className="drop-text nav-link"
             >
               Profile
