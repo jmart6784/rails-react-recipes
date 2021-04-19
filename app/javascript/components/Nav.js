@@ -11,21 +11,21 @@ const Index = () => {
         Recipes
       </Link>
       <p className="nav-text">
-        {user.current_user ? user.current_user.email : "..."}
+        {user.current_user ? user.current_user.username : "..."}
       </p>
 
       <div className="dropdown-div">
-        <Link
-          to={`user/${user.current_user ? user.current_user.id : ""}`}
-          className="nav-text nav-link"
-        >
-          Profile
-        </Link>
-
+        <p className="nav-text">More ▼</p>
         <div className="nav-dropdown-content">
           <div className="nav-drp-dwn-inner">
             <Link to="/users" className="drop-text nav-link">
               Community
+            </Link>
+            <Link
+              to={`user/${user.current_user ? user.current_user.id : ""}`}
+              className="drop-text nav-link"
+            >
+              Profile
             </Link>
             <a className="drop-text nav-link" href="/users/edit">
               Settings
