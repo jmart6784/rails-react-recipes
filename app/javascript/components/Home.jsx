@@ -1,10 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import UserContext from "./context/UserContext";
 
 const Home = () => {
-  const [user, setUser] = useContext(UserContext);
-
   return (
     <div className="home-container">
       <div className="home-mid-div">
