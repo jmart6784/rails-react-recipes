@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../components/context/UserContext";
 
 const User = (props) => {
   const [shUser, setShUser] = useState("");
-  const [recipes, setRecipes] = useState("");
+  const [recipes, setRecipes] = useState([]);
+  const [user, setUser] = useContext(UserContext);
+  const [noRecipes, setNoRecipes] = useState("");
 
-  useEffect(() => {
+  const loadUser = () => {
     const {
       match: {
         params: { id },
@@ -23,9 +26,9 @@ const User = (props) => {
       })
       .then((response) => setShUser(response))
       .catch(() => props.history.push("/recipes"));
-  }, []);
+  };
 
-  useEffect(() => {
+  const loadUserRecipes = () => {
     const {
       match: {
         params: { id },
@@ -41,19 +44,68 @@ const User = (props) => {
         }
         throw new Error("Network response was not ok.");
       })
-      .then((response) => console.log("RES: ", response))
+      .then((response) => setRecipes(response))
       .catch(() => props.history.push("/recipes"));
-  }, []);
+  };
+
+  // update page when params updates
+  useEffect(() => {
+    loadUser();
+    loadUserRecipes;
+  }, [props]);
+
+  const allRecipes = recipes.map((recipe, index) => {
+    return (
+      <div key={index}>
+        <div className="recipe-container">
+          <img
+            src={`assets/${recipe.image}`}
+            alt={`${recipe.name} image`}
+            height="300"
+            width="300"
+          />
+          <p>{recipe.name}</p>
+          <Link to={`/recipe/${recipe.id}`} className="view-recipe-link">
+            View Recipe
+          </Link>
+        </div>
+      </div>
+    );
+  });
 
   useEffect(() => {
-    console.log("EFFECT: ", shUser);
-  }, [shUser]);
+    if (user.current_user && shUser) {
+      if (shUser.id === user.current_user.id) {
+        setNoRecipes(
+          <div>
+            <h4>
+              No recipes yet. Why not <Link to="/new_recipe">create one</Link>
+            </h4>
+          </div>
+        );
+      } else {
+        setNoRecipes(
+          <div>
+            <h4>{shUser.username} hasn't shared any recipes yet.</h4>
+          </div>
+        );
+      }
+    }
+  }, [user, shUser]);
 
   return (
     <div className="user-show-container">
-      <p>{shUser.username}</p>
-      <p>{`${shUser.first_name} ${shUser.last_name}`}</p>
-      <Link to="/recipes">Back to recipes</Link>
+      <div className="user-show-info-div">
+        <p>{shUser.username}</p>
+        <p>{`${shUser.first_name} ${shUser.last_name}`}</p>
+        {shUser.bio ? <p>{shUser.bio}</p> : <p>No bio</p>}
+        <p>Recipes: {recipes.length}</p>
+      </div>
+      <button onClick={() => props.history.goBack()}>Back</button>
+
+      <div className="recipe-index-grid">
+        {recipes.length > 0 ? allRecipes : noRecipes}
+      </div>
     </div>
   );
 };

@@ -10,9 +10,12 @@ const Index = () => {
       <Link to="/recipes" className="nav-text nav-link">
         Recipes
       </Link>
-      <p className="nav-text">
+      <Link
+        to={`/user/${user.current_user ? user.current_user.id : ""}`}
+        className="nav-text"
+      >
         {user.current_user ? user.current_user.username : "..."}
-      </p>
+      </Link>
 
       <div className="dropdown-div">
         <p className="nav-text">More ▼</p>

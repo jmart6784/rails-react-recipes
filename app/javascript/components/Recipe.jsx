@@ -118,9 +118,12 @@ const Recipe = (props) => {
           </div>
         </div>
 
-        <Link to="/recipes" className="recipe-show-back-btn">
-          Back to recipes
-        </Link>
+        <button
+          onClick={() => props.history.goBack()}
+          className="recipe-show-back-btn"
+        >
+          Back
+        </button>
       </div>
     </div>
   );
