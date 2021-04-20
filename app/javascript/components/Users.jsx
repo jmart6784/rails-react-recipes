@@ -18,10 +18,10 @@ const Users = () => {
   }, []);
 
   const allUsers = users.map((user, index) => (
-    <div key={index}>
-      <div>
-        <Link to={`/user/${user.id}`}>{user.email}</Link>
-      </div>
+    <div key={index} className="user-index-info-div">
+      <Link to={`/user/${user.id}`} className="user-index-link blue-link">
+        {user.username}
+      </Link>
     </div>
   ));
 
@@ -32,10 +32,8 @@ const Users = () => {
   );
 
   return (
-    <div>
-      <h1>User Index</h1>
-      <Link to="/recipes">Recipes Index</Link>
-      <div>{users.length > 0 ? allUsers : noUsers}</div>
+    <div className="user-index-div">
+      {users.length > 0 ? allUsers : noUsers}
     </div>
   );
 };

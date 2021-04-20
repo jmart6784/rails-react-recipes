@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   def index
-    users = User.all
+    users = User.all.select(User.attribute_names - ['email'])
     render json: users
   end
 
