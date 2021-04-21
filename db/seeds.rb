@@ -1,6 +1,4 @@
-user = User.new(email: "test@mail.com", password: "password", username: "testUser123", first_name: "test", last_name: "test")
-
-user.save
+user = User.create!(email: "test@mail.com", password: "password", username: "testUser123", first_name: "test", last_name: "test")
 
 9.times do |i|
   Recipe.create(

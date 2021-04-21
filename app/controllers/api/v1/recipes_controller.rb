@@ -7,8 +7,7 @@ class Api::V1::RecipesController < ApplicationController
     Recipe.all.order(created_at: :desc).each do |recipe|
       recipe_and_user << {data: recipe, user: recipe.user.as_json(only: [:first_name, :last_name, :username, :id, :bio])}
     end
-
-    # recipe = Recipe.all.order(created_at: :desc)
+    
     render json: recipe_and_user
   end
 
