@@ -52,7 +52,9 @@
 }
 
 .drop-text:hover {
-  opacity: 0.7;
+  background-color: white;
+  color: $light-blue;
+  border: 1px solid $light-blue;
 }
 
 .nav-text {

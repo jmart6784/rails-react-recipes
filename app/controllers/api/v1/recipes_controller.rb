@@ -2,8 +2,14 @@ class Api::V1::RecipesController < ApplicationController
   before_action :set_recipe, only: [:update, :destroy]
 
   def index
-    recipe = Recipe.all.order(created_at: :desc)
-    render json: recipe
+    recipe_and_user = []
+
+    Recipe.all.order(created_at: :desc).each do |recipe|
+      recipe_and_user << {data: recipe, user: recipe.user.as_json(only: [:first_name, :last_name, :username, :id, :bio])}
+    end
+
+    # recipe = Recipe.all.order(created_at: :desc)
+    render json: recipe_and_user
   end
 
   def create

@@ -17,17 +17,23 @@ const Recipes = () => {
       .catch(() => props.history.push("/"));
   }, []);
 
-  const allRecipes = recipes.map((recipe, index) => (
-    <div key={index}>
+  const allRecipes = recipes.map((recipe) => (
+    <div key={recipe.data.id}>
       <div className="recipe-container">
         <img
-          src={`assets/${recipe.image}`}
-          alt={`${recipe.name} image`}
+          src={`assets/${recipe.data.image}`}
+          alt={`${recipe.data.name} image`}
           height="300"
           width="300"
         />
-        <p>{recipe.name}</p>
-        <Link to={`/recipe/${recipe.id}`} className="view-recipe-link">
+        <p>
+          By{" "}
+          <Link to={`/user/${recipe.user.id}`} className="blue-link">
+            {recipe.user.username}
+          </Link>
+        </p>
+        <p>{recipe.data.name}</p>
+        <Link to={`/recipe/${recipe.data.id}`} className="view-recipe-link">
           View Recipe
         </Link>
       </div>

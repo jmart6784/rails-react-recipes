@@ -109,17 +109,19 @@ const User = (props) => {
 
   return (
     <div className="user-show-container">
-      <div className="user-show-info-div">
-        <p className="user-show-username">{shUser.username}</p>
+      <div className="user-show-header-info">
+        <div className="user-show-info-div">
+          <p className="user-show-username">{shUser.username}</p>
 
-        <div className="user-show-head-inner-div">
-          <p className="user-show-name">{`${shUser.first_name} ${shUser.last_name}`}</p>
-          {shUser.bio ? (
-            <p className="user-show-bio">{shUser.bio}</p>
-          ) : (
-            <div></div>
-          )}
-          <p>Recipes: {recipes.length}</p>
+          <div className="user-show-head-inner-div">
+            <p className="user-show-name">{`${shUser.first_name} ${shUser.last_name}`}</p>
+            {shUser.bio ? (
+              <p className="user-show-bio">{shUser.bio}</p>
+            ) : (
+              <div></div>
+            )}
+            <p className="user-show-recipe-count">Recipes: {recipes.length}</p>
+          </div>
         </div>
       </div>
 
