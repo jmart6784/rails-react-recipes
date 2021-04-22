@@ -1,6 +1,6 @@
 ![screen shot](screenshot.png)
 
-The purpose of this project was to practice integrating React and Rails together and making a Rails API based CRUD project. Part of a rails react implementation tutorial: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-ruby-on-rails-project-with-a-react-frontend
+The purpose of this project was to practice integrating React and Rails together and making a Rails API based CRUD project. Part of a rails react implementation tutorial: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-ruby-on-rails-project-with-a-react-frontend the tutorial covers how to make a basic CRUD app, I implmented Devise authentication.
 
 Visit this project live at: https://rails-react-recipes-app.herokuapp.com/#/
 
