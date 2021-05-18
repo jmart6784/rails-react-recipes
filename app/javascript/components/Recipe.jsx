@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../components/context/UserContext";
 
 const Recipe = (props) => {
   const [recipe, setRecipe] = useState("");
   const [ingredientList, setIngredientsList] = useState(
     "No ingredients available"
   );
+  const [user, setUser] = useContext(UserContext);
+
+  let recipeOwner;
+  if (user.current_user !== undefined && recipe !== "") {
+    recipeOwner = user.current_user.id === recipe.user_id ? true : false;
+  } else {
+    recipeOwner = false;
+  }
 
   const [recipeInstruction, setRecipeInstruction] = useState("");
 
@@ -101,21 +110,25 @@ const Recipe = (props) => {
             />
           </div>
 
-          <div className="recipe-show-btn-div">
-            <Link
-              to={`/edit_recipe/${props.match.params.id}`}
-              className="recipe-show-edit-link"
-            >
-              Edit
-            </Link>
-            <button
-              onClick={deleteRecipe}
-              className="recipe-show-del-btn"
-              type="button"
-            >
-              Delete
-            </button>
-          </div>
+          {recipeOwner ? (
+            <div className="recipe-show-btn-div">
+              <Link
+                to={`/edit_recipe/${props.match.params.id}`}
+                className="recipe-show-edit-link"
+              >
+                Edit
+              </Link>
+              <button
+                onClick={deleteRecipe}
+                className="recipe-show-del-btn"
+                type="button"
+              >
+                Delete
+              </button>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
 
         <button
